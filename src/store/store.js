@@ -6,6 +6,9 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     questions:[],
-    answers:[]
+    answers:[],
+    login:false,
+    username:'',
+    id:''
   }
 })

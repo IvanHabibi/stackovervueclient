@@ -11,11 +11,12 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap';
 import navbar from '@/components/Navbar'
-import login from '@/components/Login'
 import Questions from '@/components/Questions'
 import searchbox from '@/components/searchbox'
 import questions from '@/components/Questions'
 import showquestion from '@/components/ShowQuestion'
+import createquestion from '@/components/CreateQuestion'
+import register from '@/components/register'
 
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue);
@@ -34,11 +35,6 @@ export default new Router({
       component: Index
     },
     {
-      path: '/login',
-      name: 'login',
-      component: login
-    },
-    {
       path: '/Questions',
       name: 'Questions',
       component: Questions
@@ -47,6 +43,16 @@ export default new Router({
       path: '/showquestion',
       name: 'showquestion',
       component: showquestion
+    },
+    {
+      path: '/createquestion',
+      name: 'createquestion',
+      component: createquestion
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: register
     }
   ]
 })

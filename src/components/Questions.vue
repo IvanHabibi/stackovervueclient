@@ -1,18 +1,18 @@
 <template lang="html">
   <div class="container">
-    <h2>Hover Rows</h2>
+    <h2>All Questions</h2>
     <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>created by</th>
-          <th>Question title</th>
-          <th>vote</th>
-        </tr>
+      <thead >
+          <tr>
+            <th>Question title</th>
+            <th>created by</th>
+            <th>vote</th>
+          </tr>
       </thead>
       <tbody>
-          <tr v-for="question in questionslist">
-            <td><a href="#">{{question.question_title}}</a></td>
-            <td><a href="javascript:void(0)"@click='redirectQuestion(question._id)'>{{question._id}}</a></td>
+          <tr v-for="(question,index) in questionslist">
+            <td><a href="javascript:void(0)"@click='redirectQuestion(question._id,index)'>{{question.question_title}}</a></td>
+            <td><a href="javascript:void(0)">{{question.question_creator}}</a></td>
             <td><a href="#">{{question.up_vote}}</a></td>
           </tr>
       </tbody>
@@ -29,13 +29,14 @@ export default {
     }
   },
   methods: {
-    redirectQuestion(param) {
+    redirectQuestion(param,index) {
       let self = this
       // console.log(param);
       self.$router.push({
         path: '/showquestion',
         query: {
-          id: `${param}`
+          id: `${param}`,
+          index: index
         }
       })
     }
